@@ -1,0 +1,76 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Page background */
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url("./assets/spanner.jpg") no-repeat center center/cover;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* Card */
+.login-card {
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  width: 350px;
+}
+
+/* Logo */
+.login-logo {
+  max-width: 150px;
+  margin-bottom: 20px;
+}
+
+/* Heading */
+.login-card h2 {
+  color: #e53935;
+  margin-bottom: 20px;
+}
+
+/* Input fields */
+.login-field {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.login-field label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #1e88e5;
+}
+
+.login-field input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+/* Button */
+.login-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #1e88e5;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.3s;
+}
+
+.login-btn:hover {
+  background-color: #1565c0;
+}

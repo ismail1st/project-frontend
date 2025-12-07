@@ -22,7 +22,7 @@ export default function App() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Load the data
+  // ---------------- FETCH ALL DATA ----------------
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -47,7 +47,7 @@ export default function App() {
         setSales(Array.isArray(saleData) ? saleData : []);
       } catch (err) {
         console.error("Error loading data:", err);
-        setError("Failed to load data. Check backend.");
+        setError("Failed to load data. Check your backend.");
       } finally {
         setLoading(false);
       }
@@ -56,7 +56,7 @@ export default function App() {
     fetchData();
   }, []);
 
-  // add category
+  // ---------------- ADD CATEGORY ----------------
   const addCategory = async () => {
     if (!catName) return toast.warn("Enter a category name");
 
@@ -76,7 +76,17 @@ export default function App() {
     }
   };
 
-  // ---------------- Add Part ----------------
+  const fetchCategories = async () => {
+    try {
+      const res = await fetch(`${API_URL}/categories`);
+      const data = await res.json();
+      setCategories(Array.isArray(data) ? data : []);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  // ---------------- ADD PART ----------------
   const addPart = async () => {
     if (!partName || !partCategory)
       return toast.warn("Enter part name and category");
@@ -98,7 +108,17 @@ export default function App() {
     }
   };
 
-  // sales
+  const fetchParts = async () => {
+    try {
+      const res = await fetch(`${API_URL}/parts`);
+      const data = await res.json();
+      setParts(Array.isArray(data) ? data : []);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  // ---------------- RECORD SALE ----------------
   const recordSale = async () => {
     if (!salePart || saleQty <= 0)
       return toast.warn("Select part and enter quantity");
@@ -120,27 +140,6 @@ export default function App() {
     }
   };
 
-  // fetch
-  const fetchCategories = async () => {
-    try {
-      const res = await fetch(`${API_URL}/categories`);
-      const data = await res.json();
-      setCategories(Array.isArray(data) ? data : []);
-    } catch (err) {
-      console.error(err);
-    }
-  };
-
-  const fetchParts = async () => {
-    try {
-      const res = await fetch(`${API_URL}/parts`);
-      const data = await res.json();
-      setParts(Array.isArray(data) ? data : []);
-    } catch (err) {
-      console.error(err);
-    }
-  };
-
   const fetchSales = async () => {
     try {
       const res = await fetch(`${API_URL}/sales`);
@@ -151,7 +150,7 @@ export default function App() {
     }
   };
 
-  // ---------------- UI ----------------
+  // ---------------- LOADING & ERROR UI ----------------
   if (loading) return <div className="app-container">Loading...</div>;
   if (error)
     return (
@@ -160,14 +159,11 @@ export default function App() {
       </div>
     );
 
+  // ---------------- MAIN UI ----------------
   return (
     <div className="app-container">
       <div className="content">
-        <img
-          src={logo || "https://via.placeholder.com/150"}
-          alt="Ismail Auto Parts Logo"
-          className="logo"
-        />
+        <img src={logo} alt="Ismail Auto Parts Logo" className="logo" />
 
         {/* CATEGORY */}
         <div className="card">
@@ -267,12 +263,13 @@ export default function App() {
         </div>
       </div>
 
+      {/* FOOTER */}
       <footer>
         <p>Contact: info@ismailautoparts.com</p>
         <p>+254 700 000 000</p>
       </footer>
 
-      {/* Toast container */}
+      {/* TOAST */}
       <ToastContainer position="top-right" autoClose={2000} theme="colored" />
     </div>
   );

@@ -1,9 +1,15 @@
+/* -------------------------
+   RESET
+-------------------------- */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* -------------------------
+   APP CONTAINER
+-------------------------- */
 .app-container {
   min-height: 100vh;
   display: flex;
@@ -13,62 +19,108 @@
   background: url("src/assets/spanner.jpg") no-repeat center center/cover;
   font-family: "Segoe UI", Arial, sans-serif;
   color: #222;
+  padding: 20px;
 }
 
+/* -------------------------
+   CONTENT CARD
+-------------------------- */
 .content {
   width: 90%;
   max-width: 900px;
-  background-color: rgba(255, 255, 255, 0.9);
-  padding: 30px;
-  border-radius: 20px;
-  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.85);
+  padding: 35px;
+  border-radius: 22px;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 25px;
   text-align: center;
+  transition: transform 0.2s ease;
 }
 
+.content:hover {
+  transform: translateY(-3px);
+}
+
+/* -------------------------
+   HEADINGS
+-------------------------- */
 h1 {
   font-size: 3rem;
-  color: #e53935;
+  color: #d32f2f;
   margin-bottom: 20px;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 h2 {
-  font-size: 1.5rem;
-  color: #1e88e5;
-  margin-bottom: 10px;
+  font-size: 1.6rem;
+  color: #1565c0;
+  margin-bottom: 12px;
+  text-align: center;
 }
 
+/* -------------------------
+   CARD
+-------------------------- */
 .card {
-  border: 2px solid #e53935;
-  border-radius: 15px;
-  padding: 20px;
-  background-color: #fff;
+  border: 1px solid #d32f2f;
+  border-radius: 16px;
+  padding: 22px;
+  background-color: #ffffff;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.2s ease;
 }
 
+.card:hover {
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.15);
+}
+
+/* -------------------------
+   INPUTS
+-------------------------- */
 .input-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 12px;
   justify-content: center;
   align-items: center;
 }
 
 input,
 select {
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #bbb;
   flex: 1 1 150px;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
 }
 
+input:focus,
+select:focus {
+  border-color: #1e88e5;
+  box-shadow: 0 0 6px rgba(30, 136, 229, 0.3);
+  outline: none;
+}
+
+/* -------------------------
+   BUTTONS
+-------------------------- */
 button {
-  padding: 10px 20px;
+  padding: 12px 24px;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   color: #fff;
   cursor: pointer;
+  font-weight: 600;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-3px);
+  opacity: 0.9;
 }
 
 button:nth-of-type(1) {
@@ -81,26 +133,100 @@ button:nth-of-type(3) {
   background-color: #8e24aa;
 }
 
-ul {
-  text-align: left;
-  list-style-type: disc;
-  padding-left: 20px;
-}
-
+/* -------------------------
+   FOOTER
+-------------------------- */
 footer {
-  margin-top: 20px;
-  padding: 15px 0;
+  margin-top: 25px;
+  padding: 18px 0;
   width: 100%;
   text-align: center;
-  background-color: #e53935;
+  background-color: #d32f2f;
   color: #fff;
   font-weight: bold;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+  box-shadow: 0 -3px 12px rgba(0, 0, 0, 0.1);
 }
+
+/* -------------------------
+   LOGO
+-------------------------- */
 .logo {
   display: block;
-  margin: 0 auto 20px auto; /* centers horizontally and adds bottom spacing */
-  max-width: 250px; /* keeps logo from being too big */
-  height: auto; /* maintain aspect ratio */
+  margin: 0 auto 22px auto;
+  max-width: 230px;
+  height: auto;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.25));
+}
+
+/* -------------------------
+   SPARE PARTS & SALES
+-------------------------- */
+ul.spare-parts,
+ul.sales {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+ul.spare-parts li,
+ul.sales li {
+  background-color: #f5f5f5;
+  padding: 12px 18px;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  font-size: 1rem;
+  color: #333;
+  font-weight: 500;
+}
+
+ul.spare-parts li:hover,
+ul.sales li:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+li span.name {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #1e88e5;
+}
+
+li span.details {
+  font-size: 0.95rem;
+  color: #555;
+  display: flex;
+  gap: 15px;
+}
+
+li span.details span {
+  font-weight: 400;
+  color: #222;
+}
+
+/* Action buttons inside lists */
+li button {
+  padding: 6px 14px;
+  font-size: 0.85rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+li button.edit {
+  background-color: #1e88e5;
+  color: #fff;
+}
+
+li button.delete {
+  background-color: #e53935;
+  color: #fff;
 }
