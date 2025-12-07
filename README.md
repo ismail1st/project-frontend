@@ -1,16 +1,44 @@
-# React + Vite
+# THE LINK TO MY BACKEND
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+https://github.com/ismail1st/project-backend
 
-Currently, two official plugins are available:
+# AutoShop Frontend
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This is the frontend for the **AutoShop** project. It is a React application that connects to the AutoShop backend API to manage categories, spare parts, and sales.
 
-## React Compiler
+The app features a responsive UI with a centered layout, a red and blue theme, a logo, a background image, and a footer with contact information.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## Table of Contents
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Setup](#setup)
+- [Project Structure](#project-structure)
+- [Available Scripts](#available-scripts)
+- [Connecting to Backend](#connecting-to-backend)
+- [License](#license)
+
+---
+
+## Features
+
+- View, add, and manage **categories**
+- View, add, and manage **spare parts**
+- Record and view **sales**
+- Responsive layout with centered content
+- Red and blue theme with customizable background
+- Footer with contact information
+- Logo displayed in header
+
+---
+
+## Tech Stack
+
+- **React** – Frontend library
+- **React Hooks** – For state management (`useState`, `useEffect`)
+- **CSS / Tailwind (optional)** – Styling
+- **Axios / Fetch API** – For API requests
+
+---
